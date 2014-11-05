@@ -1,0 +1,283 @@
+/* ----------------------------------------
+
+   Colour Swatches
+   ========================================
+   "color1": == Background
+   "color2": == Contrast colour
+   "color3": == Button colour
+   "color4": == Title colour
+   "color5": == Paragraph colour
+   "color6": == Nav text colour
+   "color7": == Header BG colour
+
+   Font Swatches
+   ========================================
+   "font1":  == Heading 1
+   "font2":  == Heading 2
+   "font3":  == Heading 3
+   "font4":  == Heading 4
+   "font5":  == Paragraph
+   "font6":  == Navigation Text
+   "font7":  == Buttons
+   "font8":  == Feature Title
+   "font9":  == Feature Subtitle
+   "font10": == Logo
+
+---------------------------------------- */
+
+body {
+	background-image: image('/images/bg.jpg');
+	background-attachment: fixed;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Wrapper
+======================================== */
+
+.wrapper {
+	width: 90%;
+	margin: 0 5%;
+	@media only screen and (min-width: 1140px) {
+		width: 1140px;
+		margin: 0 auto;
+	}
+}
+
+/* Header - Logo & Company Name (Widget)
+======================================== */
+
+header.template-header {
+	background-color: @color-swatch7;
+	.widget.logo,
+	.widget.companyname {
+		display: inline-block;
+		vertical-align: -webkit-baseline-middle;
+		vertical-align: middle;
+		padding: 10px 0;
+	}
+	.widget.logo {
+		a {
+			.logo {
+				img {
+					margin: 5px 10px 0 0;
+				}
+			}
+		}
+	}
+	.widget.companyname {
+		a {
+			color: @font-swatch10-color;
+		}
+	}
+}
+
+/* Navigation - Extented Navigation (Widget)
+======================================== */
+
+nav.template-nav {
+	background-color: @color-swatch3;
+	&:empty {
+		background-color: transparent;
+	}
+}
+
+/* Home Twig - Feature (Widget)
+======================================== */
+
+section.template-feature {
+	background-color: @color-swatch1;
+	border-bottom: 1px solid darken(@color-swatch1, 10%);
+	.widget.feature {
+		.feature-bgimg {
+			background-position: 93% center !important;
+			background-size: auto;
+			.content {
+				.spare.wrapper {
+					max-width: 50%;
+					margin: 0;
+					padding: 0 40px;
+					h2 {
+						color: @font-swatch4-color;
+						span {}
+					}
+					h3 {
+						padding-bottom: 25px;
+						color: @font-swatch4-color;
+						span {}
+					}
+					span.feature-btn {
+						button.btn {
+							span.btnText {}
+						}
+					}
+				}
+			}
+		}
+	}
+	&:empty {
+		background-color: transparent;
+		border-bottom: 0;
+	}
+}
+
+/* Tablet viewport */
+
+@media @tablet {
+	section.template-feature {
+		.widget.feature {
+			.feature-bgimg {
+				height: auto;
+				background-image: none !important;
+				.content {
+					height: auto;
+					.spare.wrapper {
+						width: 100%;
+						max-width: 100%;
+						padding: 30px;
+						text-align: center;
+						h2 {
+							span {}
+						}
+						h3 {
+							span {}
+						}
+						span.feature-btn {
+							button.btn {
+								span.btnText {}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Mobile viewport */
+
+@media @mobile {
+	section.template-feature {
+		.widget.feature {
+			.feature-bgimg {
+				.content {
+					.spare.wrapper {
+						padding: 20px;
+						h2 {
+							span {}
+						}
+						h3 {
+							span {}
+						}
+						span.feature-btn {
+							button.btn {
+								span.btnText {}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Main Content
+======================================== */
+
+.main-content {
+	padding: 40px;
+	background-color: @color-swatch1;
+}
+
+@media @tablet {
+	.main-content {
+		padding: 30px;
+	}
+}
+
+@media @mobile {
+	.main-content {
+		padding: 20px;
+	}
+}
+
+/* Footer - Company Name & Address (Widget)
+======================================== */
+
+footer.template-footer {
+	padding: 40px 0;
+	background-color: @color-swatch7;
+	text-align: center;
+	.widget.companyname,
+	.widget.companyaddress {
+		display: inline-block;
+	}
+	.widget.companyname {
+		a {
+			font-family: @font-swatch5-font-family;
+			font-size: bkscale(@font-swatch4-font-size, 0.9);
+			font-weight: @font-swatch5-font-weight;
+			line-height: bkscale(@font-swatch4-line-height, 0.9);
+			color: @color-swatch2;
+			letter-spacing: @font-swatch5-letter-spacing;
+		}
+	}
+	.widget.companyaddress {
+		p.address,
+		p.address1,
+		p.address2,
+		p.postal-code,
+		p.country {
+			display: inline-block;
+			padding-left: 10px;
+			font-size: bkscale(@font-swatch4-font-size, 0.9);
+			line-height: bkscale(@font-swatch4-line-height, 0.9);
+			color: @color-swatch2;
+			&:before {
+				padding-right: 10px;
+				content: "|";
+			}
+			&:empty {
+				display: none;
+			}
+		}
+	}
+}
+
+/* Mobile viewport */
+
+@media @mobile {
+	footer.template-footer {
+		padding: 30px 0;
+		.widget.companyname,
+		.widget.companyaddress {
+			display: block;
+		}
+		.widget.companyname {
+			padding-bottom: 5px;
+			a {}
+		}
+		.widget.companyaddress {
+			p.address,
+			p.address1,
+			p.address2,
+			p.postal-code,
+			p.country {
+				display: block;
+				padding-bottom: 5px;
+				padding-left: 0;
+				&:before {
+					padding-right: 0;
+					content: " ";
+				}
+				&:empty {
+					display: none;
+				}
+				&:last-child {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
